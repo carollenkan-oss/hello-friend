@@ -4,6 +4,10 @@ import { PageHero } from "@/components/site/PageHero";
 import frameAsset from "@/assets/project-warehouse-frame.jpg.asset.json";
 import roofAsset from "@/assets/project-warehouse-roof.jpg.asset.json";
 import steelAsset from "@/assets/project-warehouse-steel.jpg.asset.json";
+import slide2Asset from "@/assets/project-slide-2.png.asset.json";
+import slide3Asset from "@/assets/project-slide-3.png.asset.json";
+import slide4Asset from "@/assets/project-slide-4.png.asset.json";
+import slide5Asset from "@/assets/project-slide-5.png.asset.json";
 import { whatsappLink } from "@/lib/contact";
 
 export const Route = createFileRoute("/projects")({
