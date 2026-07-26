@@ -1,5 +1,5 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
-import { ArrowRight } from "lucide-react";
+import { createFileRoute } from "@tanstack/react-router";
+
 import storyImage from "@/assets/story-warehouse.jpg";
 import denisAsset from "@/assets/team-denis.jpg.asset.json";
 import fuljensioAsset from "@/assets/team-fuljensio.jpg.asset.json";
