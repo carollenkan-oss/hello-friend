@@ -4,6 +4,10 @@ import { PageHero } from "@/components/site/PageHero";
 import frameAsset from "@/assets/project-warehouse-frame.jpg.asset.json";
 import roofAsset from "@/assets/project-warehouse-roof.jpg.asset.json";
 import steelAsset from "@/assets/project-warehouse-steel.jpg.asset.json";
+import slide2Asset from "@/assets/project-slide-2.png.asset.json";
+import slide3Asset from "@/assets/project-slide-3.png.asset.json";
+import slide4Asset from "@/assets/project-slide-4.png.asset.json";
+import slide5Asset from "@/assets/project-slide-5.png.asset.json";
 import { whatsappLink } from "@/lib/contact";
 
 export const Route = createFileRoute("/projects")({
@@ -130,6 +134,94 @@ function ProjectsPage() {
           </div>
         </div>
       </section>
+
+      <section className="mx-auto max-w-6xl px-4 py-20">
+        <div className="max-w-2xl">
+          <p className="text-xs font-bold uppercase tracking-[0.3em] text-accent">
+            Selected case studies
+          </p>
+          <h2 className="mt-3 text-3xl font-bold text-primary sm:text-4xl">
+            More featured projects
+          </h2>
+          <p className="mt-4 text-base leading-relaxed text-muted-foreground">
+            A cross-section of dormitories, warehouses and specialist steelworks delivered by our
+            teams across Uganda.
+          </p>
+        </div>
+        <div className="mt-12 grid gap-8 md:grid-cols-2">
+          {[
+            {
+              title: "Kisubi SSS. Mapeera Boy's Dormitory Glass Skylight",
+              sector: "Education · Steelworks",
+              location: "Kisubi, Namulanda, Entebbe, Kampala",
+              materials: "Steel Hollow Sections, G26 Iron Sheets, Laminated Glass, Aluminum",
+              body: "A structural steel skylight and roof assembly for a boys' dormitory — combining engineered hollow sections with laminated glass panels to bring daylight into the interior while maintaining a durable weatherproof envelope.",
+              img: slide2Asset.url,
+            },
+            {
+              title: "Processing Warehouse",
+              sector: "Industrial · Design + Build",
+              location: "Kayunga, Kangulumira",
+              materials: "Concrete and Steel",
+              body: "A ground-up industrial processing warehouse in reinforced concrete with a purpose-engineered steel truss roof, ventilated block infill and ridge ventilation — completed with boundary walling and full site works.",
+              img: slide3Asset.url,
+            },
+            {
+              title: "Coffee Drier Warehouse",
+              sector: "Agro-industrial",
+              location: "Gomba",
+              materials: "Concrete and Steel",
+              body: "A coffee drying warehouse featuring reinforced concrete foundations, cast slabs and a steel-framed high-clearance roof structure sized for drying operations and equipment.",
+              img: slide4Asset.url,
+            },
+            {
+              title: "St. Theresa Girls Primary School — Girls Dormitory",
+              sector: "Education · Steelworks",
+              location: "Kisubi, Entebbe, Kampala",
+              materials: "Structural Steel, G26 Iron Sheets",
+              body: "Structural steel roof and floor framing for a multi-storey girls' dormitory — heavy-section beams and purlins engineered for long spans, safety and long service life.",
+              img: slide5Asset.url,
+            },
+          ].map((p) => (
+            <article
+              key={p.title}
+              className="flex flex-col overflow-hidden border-t-4 border-accent bg-card shadow-lift"
+            >
+              <img
+                src={p.img}
+                alt={p.title}
+                loading="lazy"
+                className="h-56 w-full object-cover sm:h-64"
+              />
+              <div className="flex flex-1 flex-col p-6">
+                <p className="text-xs font-bold uppercase tracking-[0.14em] text-accent">
+                  {p.sector}
+                </p>
+                <h3 className="mt-2 text-xl font-bold text-primary">{p.title}</h3>
+                <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{p.body}</p>
+                <dl className="mt-5 space-y-2 border-t border-border pt-4 text-sm">
+                  <div className="flex gap-2">
+                    <dt className="flex items-center gap-2 font-bold text-foreground">
+                      <MapPin className="h-4 w-4 text-accent" aria-hidden="true" />
+                      Location:
+                    </dt>
+                    <dd className="text-muted-foreground">{p.location}</dd>
+                  </div>
+                  <div className="flex gap-2">
+                    <dt className="flex items-center gap-2 font-bold text-foreground">
+                      <Layers className="h-4 w-4 text-accent" aria-hidden="true" />
+                      Materials:
+                    </dt>
+                    <dd className="text-muted-foreground">{p.materials}</dd>
+                  </div>
+                </dl>
+              </div>
+            </article>
+          ))}
+        </div>
+      </section>
+
+
 
       <section className="faceted border-y border-border">
         <div className="mx-auto max-w-6xl px-4 py-16">
