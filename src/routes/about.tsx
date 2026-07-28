@@ -1,11 +1,8 @@
 import { createFileRoute } from "@tanstack/react-router";
 
 import storyImage from "@/assets/story-warehouse.jpg";
-import denisAsset from "@/assets/team-denis.jpg.asset.json";
-import fuljensioAsset from "@/assets/team-fuljensio.jpg.asset.json";
-import michaelAsset from "@/assets/team-michael.jpg.asset.json";
-import edmundAsset from "@/assets/team-edmund.jpg.asset.json";
 import { PageHero } from "@/components/site/PageHero";
+
 
 export const Route = createFileRoute("/about")({
   head: () => ({
@@ -148,46 +145,45 @@ function AboutPage() {
             {
               name: "Kisekka Denis",
               role: "Team Leader",
-              photo: denisAsset.url,
               bio: "With over 5 years in the industry, Denis leads with a vision for innovative construction and design solutions.",
             },
             {
               name: "Kyagambiddwa Fuljensio",
               role: "Project Manager",
-              photo: fuljensioAsset.url,
               bio: "Brings expert leadership in construction and implementation to ensure seamless project execution and structural excellence.",
             },
             {
               name: "Matovu Michael",
               role: "Finance & Procurement",
-              photo: michaelAsset.url,
               bio: "Excels in optimising budgets, streamlining procurement processes and ensuring cost-effective resource management.",
             },
             {
               name: "Tabula Edmund Ntale",
               role: "Administrator",
-              photo: edmundAsset.url,
               bio: "Streamlines operations, enhances organisational efficiency and ensures seamless project coordination.",
             },
-          ].map((m) => (
-            <article key={m.name} className="text-center">
-              <div className="mx-auto aspect-square w-full max-w-[220px] overflow-hidden rounded-full ring-4 ring-accent">
-                <img
-                  src={m.photo}
-                  alt={`${m.name}, ${m.role} at Creed`}
-                  loading="lazy"
-                  className="h-full w-full object-cover"
-                />
-              </div>
-              <h3 className="mt-5 text-lg font-bold text-primary">{m.name}</h3>
-              <p className="mt-1 text-xs font-bold uppercase tracking-[0.14em] text-accent">
-                {m.role}
-              </p>
-              <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{m.bio}</p>
-            </article>
-          ))}
+          ].map((m) => {
+            const initials = m.name
+              .split(" ")
+              .map((w) => w[0])
+              .slice(0, 2)
+              .join("");
+            return (
+              <article key={m.name} className="text-center">
+                <div className="mx-auto flex aspect-square w-full max-w-[200px] items-center justify-center rounded-full bg-primary text-4xl font-bold text-primary-foreground ring-4 ring-accent">
+                  {initials}
+                </div>
+                <h3 className="mt-5 text-lg font-bold text-primary">{m.name}</h3>
+                <p className="mt-1 text-xs font-bold uppercase tracking-[0.14em] text-accent">
+                  {m.role}
+                </p>
+                <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{m.bio}</p>
+              </article>
+            );
+          })}
         </div>
       </section>
+
 
     </>
   );
